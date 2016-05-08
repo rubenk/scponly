@@ -2,6 +2,7 @@ Makefile
 config.h
 config.log
 config.status
+/configure
 debuglevel
 groups
 *.o
