@@ -78,25 +78,6 @@ char* solaris_needs_strsep(char** str, char* delims)
 }
 #endif
 
-/*
- * perform a deep copy of an argument vector, ignoring all vector elements which begin with "--"
- */
-char **strip_vector(char **sav)
-{
-	char 	**tmpptr=sav;  
-	char 	**dav=(char **)malloc(MAX_ARGC * (sizeof(char *)));
-	int		dac=0;
-
-	bzero(dav,sizeof(dav));
-    while (*tmpptr!=NULL)
-	{
-		if(NULL == strbeg(*tmpptr, "--"))
-			dav[dac++]=strdup(*tmpptr);
-		tmpptr++;
-	}
-	return dav;
-}
-
 void discard_vector(char **av)
 {
 	discard_child_vectors(av);
