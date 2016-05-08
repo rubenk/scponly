@@ -582,7 +582,7 @@ int replace_env_entry(const char* name, const char* value) {
 
 int mysetenv(const char *name, const char *value) {
 	/* from: http://www.onlamp.com/pub/a/onlamp/excerpt/PUIS3_chap16/index3.html */
-	static char count = 0;
+	static unsigned char count = 0;
 	char buff[255];
 	
 	if (count == 0)
