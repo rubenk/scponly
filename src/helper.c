@@ -582,7 +582,7 @@ int mysetenv(const char *name, const char *value) {
 	return 0;
 }
 
-void filter_allowed_env_vars() {
+void filter_allowed_env_vars(void) {
 	
 	char *p_env;
 	char **p_valid = allowed_env_vars;
