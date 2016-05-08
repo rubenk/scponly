@@ -156,12 +156,14 @@ AC_ARG_ENABLE([chrooted-binary],
       AC_HELP_STRING([--enable-chrooted-binary], [install chrooted binary 'scponlyc']),
       [
               if test "x$enableval" != "xno"; then
-                      AC_SUBST([CHROOTED_NAME], [scponlyc])
-                      AC_DEFINE([CHROOTED_NAME], [1], [Define to 1 if you want "scponlyc"])
+                      AC_DEFINE([CHROOTED_NAME], ["scponlyc"], [The name of the chrooted binary])
               fi
       ],[
               echo -n
       ])
+AC_MSG_NOTICE([enable binary: $enableval])
+AC_SUBST([CHROOTED_NAME], [scponlyc])
+AM_CONDITIONAL([ENABLE_CHROOTED_BINARY], [test "x$enableval" != "xno"])
 
 AC_ARG_ENABLE([chroot-checkdir],
       AC_HELP_STRING([--disable-chroot-checkdir], [disable checking chroot dir ownership]),

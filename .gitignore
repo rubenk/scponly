@@ -10,8 +10,6 @@ config.status
 config.h.in
 config.h.in~
 /configure
-debuglevel
-groups
 *.o
 scponly
 scponlyc
@@ -19,3 +17,5 @@ tags
 CVS
 /setup_chroot.sh
 /stamp-h1
+/*.tar.bz2
+/scponly-*/

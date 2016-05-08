@@ -1,59 +1,40 @@
 ACLOCAL_AMFLAGS = -I m4
-# Autoconfed stuff
-CHROOTED_NAME   = @CHROOTED_NAME@
-CONFDIR         = @sysconfdir@/scponly
-DEBUGFILE       = ${CONFDIR}/debuglevel
-DEFS		 = @DEFS@ -DDEBUGFILE='"${DEBUGFILE}"'
+AM_CFLAGS = -Wall
 
-all: scponly groups
+confdir = $(sysconfdir)/scponly
 
-clean:
-	rm -f *.o scponly *~ debuglevel ${CHROOTED_NAME} groups
+bin_PROGRAMS = scponly
 
-love: clean all
+scponly_SOURCES = \
+	config.h \
+	helper.c \
+	netbsd_getopt_long.c \
+	scponly_getopt.h \
+	scponly.c scponly.h
 
-scponly: scponly.o helper.o netbsd_getopt_long.o
-	${CC} ${CFLAGS} ${DEFS} -o $@ scponly.o helper.o netbsd_getopt_long.o
+scponly_CPPFLAGS = \
+	$(AM_CPPFLAGS) \
+	-DDEBUGFILE='"$(confdir)/debuglevel"'
 
-groups: groups.c
-	${CC} ${CFLAGS} ${DEFS} -o $@ groups.c
+dist_man_MANS = scponly.8
 
-scponly.o: scponly.c config.h scponly.h
-	${CC} ${CFLAGS} ${DEFS} -o $@ -c scponly.c
+dist_conf_DATA = debuglevel
 
-helper.o: helper.c config.h scponly.h
-	${CC} ${CFLAGS} ${DEFS} -o $@ -c helper.c
+EXTRA_DIST = \
+	AUTHOR \
+	BUILDING-JAILS.TXT \
+	CONTRIB \
+	SECURITY
 
-netbsd_getopt_long.o: netbsd_getopt_long.c config.h scponly.h
-	${CC} ${CFLAGS} ${DEFS} -o $@ -c netbsd_getopt_long.c
 
-install: scponly debuglevel scponly.8
-	${INSTALL} -d ${DESTDIR}${bindir}
-	${INSTALL} -d ${DESTDIR}${mandir}/man8
-	${INSTALL} -d ${DESTDIR}${CONFDIR}
-	${INSTALL} -o 0 -g 0 scponly ${DESTDIR}${bindir}/scponly
-	${INSTALL} -o 0 -g 0 -m 0644 scponly.8 ${DESTDIR}${mandir}/man8/scponly.8
-	${INSTALL} -o 0 -g 0 -m 0644 debuglevel ${DESTDIR}${DEBUGFILE}
-	if test "x${CHROOTED_NAME}" != "x"; then			\
-		${INSTALL} -d ${DESTDIR}${sbindir};				\
-		rm -f ${DESTDIR}${sbindir}/${CHROOTED_NAME};			\
-		cp scponly ${CHROOTED_NAME};				\
-		${INSTALL} -o 0 -g 0 -m 4755 ${CHROOTED_NAME} ${DESTDIR}${sbindir}/${CHROOTED_NAME};	\
-	fi
+if ENABLE_CHROOTED_BINARY
+install-exec-hook:
+	$(MKDIR_P) "$(DESTDIR)$(sbindir)" || exit 1; \
+	$(install_sh_PROGRAM) scponly "$(DESTDIR)$(sbindir)/$(CHROOTED_NAME)" || exit 1;
 
-debuglevel:
-	echo "0" > $@
-
-jail:	install
-	chmod u+x ./setup_chroot.sh
-	./setup_chroot.sh
-
-distclean: clean
-	rm -fr autom4te.cache
-	rm -f config.h config.log config.status Makefile setup_chroot.sh
-
-maintainer-clean: distclean
-	rm -f configure 
+uninstall-hook:
+	-rm -f "$(DESTDIR)$(sbindir)/$(CHROOTED_NAME)"
+endif
 
 ctags:
 	ctags -R .
