@@ -12,15 +12,11 @@ AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([foreign dist-bzip2 no-dist-gzip tar-ustar -Wno-portability subdir-objects parallel-tests 1.11])
 AM_SILENT_RULES([yes])
 
-# this temp_os is a brutal hack until i look into the proper way to do this. ie- rtfm
-temp_os=`echo $host_os | cut -c-7`
-if test "$temp_os" = solaris; then
+case $host_os in
+        *aix*|*solaris*)
 	AC_DEFINE([UNIX_COMPAT], [1], [Define to 1 to enable UNIX compatibility])
-fi
-temp_os=`echo $host_os | cut -c-3`
-if test "$temp_os" = aix; then
-	AC_DEFINE([UNIX_COMPAT], [1], [Define to 1 to enable UNIX compatibility])
-fi
+	;;
+esac
 
 AC_DEFINE_UNQUOTED([HOST_OS],[$host_os], [Host OS])
 
