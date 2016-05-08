@@ -38,10 +38,6 @@ AC_PATH_PROG([PROG_PWD_MKDB], [pwd_mkdb])
 dnl Checks for header files.
 AC_CHECK_HEADERS_ONCE([wordexp.h glob.h libgen.h getopt.h])
 
-dnl Checks for typedefs, structures, and compiler characteristics.
-AC_C_CONST
-AC_C_INLINE
-
 dnl Checks for library functions.
 AC_FUNC_ALLOCA
 AC_CHECK_FUNCS_ONCE([bzero glob wordexp basename getopt])
