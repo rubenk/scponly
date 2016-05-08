@@ -45,7 +45,7 @@ AC_C_INLINE
 
 dnl Checks for library functions.
 AC_FUNC_ALLOCA
-AC_CHECK_FUNCS([malloc atexit bzero strchr strerror glob wordexp strspn basename getopt])
+AC_CHECK_FUNCS([bzero glob wordexp basename getopt])
 
 AC_CHECK_DECL(optreset,
  AC_DEFINE([HAVE_OPTRESET],[1],[have optreset]),,
