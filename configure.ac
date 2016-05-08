@@ -37,7 +37,7 @@ AC_PATH_PROG([PROG_PWD_MKDB], [pwd_mkdb])
 
 dnl Checks for libraries.
 dnl Checks for header files.
-AC_CHECK_HEADERS([syslog.h unistd.h wordexp.h glob.h libgen.h getopt.h])
+AC_CHECK_HEADERS([wordexp.h glob.h libgen.h getopt.h])
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
