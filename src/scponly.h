@@ -48,7 +48,7 @@ char *strend (char *, char *);
 int valid_chars(char *);
 int get_uservar(void);
 void show_usage(void);
-char *logstamp();
+char *logstamp(void);
 int cntchr(char *, char);
 char **build_arg_vector(char *);
 char **expand_wildcards(char **);

@@ -1,5 +1,5 @@
 ACLOCAL_AMFLAGS = -I m4
-AM_CFLAGS = -Wall
+AM_CFLAGS = -Wall -Weverything
 
 confdir = $(sysconfdir)/scponly
 

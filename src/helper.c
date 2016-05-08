@@ -444,7 +444,7 @@ int cntchr(char *buf, char x)
 	return count;
 }
 
-char *logstamp ()
+char *logstamp(void)
 {
 	/* Time and pid are handled for us by syslog(3). */
 	static char ret_buf[255];
