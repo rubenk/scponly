@@ -446,7 +446,7 @@ char *logstamp(void)
  *	if big ends with small, return big without
  *	small in a new buf, else NULL
  */
-char *strend (char *big, char *small)
+char *strend (const char *big, const char *small)
 {
 	int blen,slen;
 	slen=strlen(small);
@@ -475,7 +475,7 @@ char *strend (char *big, char *small)
  *	if big starts with small, return the char after 
  *	the last char in small from big. ahem.
  */
-char *strbeg(char *big, char *small)
+char *strbeg(const char *big, const char *small)
 {
 	if (strlen(big) <= strlen(small))
 		return NULL;
