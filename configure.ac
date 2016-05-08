@@ -18,8 +18,6 @@ case $host_os in
 	;;
 esac
 
-AC_DEFINE_UNQUOTED([HOST_OS],[$host_os], [Host OS])
-
 dnl Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
