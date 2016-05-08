@@ -247,8 +247,6 @@ int main (int argc, char **argv)
 
 #ifdef UNIX_COMPAT 
 	openlog(PACKAGE_NAME, logopts, LOG_AUTH);
-#elif IRIX_COMPAT
-	openlog(PACKAGE_NAME, logopts, LOG_AUTH);
 #else
 	if (debuglevel > 1) /* debuglevel 1 will still log to syslog */
 		logopts |= LOG_PERROR;

@@ -17,10 +17,6 @@ temp_os=`echo $host_os | cut -c-7`
 if test "$temp_os" = solaris; then
 	AC_DEFINE([UNIX_COMPAT], [1], [Define to 1 to enable UNIX compatibility])
 fi
-temp_os=`echo $host_os | cut -c-4`
-if test "$temp_os" = irix;  then
-	AC_DEFINE([IRIX_COMPAT], [1], [Define to 1 to enable Irix compatibility])
-fi
 temp_os=`echo $host_os | cut -c-3`
 if test "$temp_os" = aix; then
 	AC_DEFINE([UNIX_COMPAT], [1], [Define to 1 to enable UNIX compatibility])
