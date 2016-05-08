@@ -78,7 +78,7 @@ AC_ARG_WITH([sftp-server],
     [
         if test "x$withval" != "xno"; then
             # --without-sftp-server is a perfectly good
-            # way of requesting that sftp compatability *not*
+            # way of requesting that sftp compatibility *not*
             # be present.
             scponly_explicit_sftpserver_path=$withval
             AC_DEFINE([ENABLE_SFTP], [1], [Define to 1 to enable sftp support])
@@ -200,7 +200,7 @@ fi
 dnl Check for binaries required by the WinSCP compatibility mode
 dnl winscp-compat conditionals:
 if test "x$enable_winscp_compat" != "xno"; then
-    AC_MSG_NOTICE([enabling WinSCP compatability...])
+    AC_MSG_NOTICE([enabling WinSCP compatibility...])
     SCPONLY_PATH_PROG_DEFINE([PROG_PWD],    [pwd],    [/bin:/usr/bin:/sbin:/usr/sbin])
     SCPONLY_PATH_PROG_DEFINE([PROG_GROUPS], [groups], [/bin:/usr/bin:/sbin:/usr/sbin])
     SCPONLY_PATH_PROG_DEFINE([PROG_ID],     [id],     [/bin:/usr/bin:/sbin:/usr/sbin])
@@ -210,14 +210,14 @@ fi
 # unison-compat conditionals:
 if test "x$enable_unison_compat" != "x" && test "x$enable_unison_compat" != "xno"; then
     AC_MSG_WARN([read the SECURITY document before enabling unison compatibility])
-    AC_MSG_NOTICE([enabling unison compatability...])
+    AC_MSG_NOTICE([enabling unison compatibility...])
     SCPONLY_PATH_PROG_DEFINE([PROG_UNISON],   [unison], [/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin])
 fi
 
 # rsync-compat conditionals:
 if test "x$enable_rsync_compat" != "x" && test "x$enable_rsync_compat" != "xno"; then
     AC_MSG_WARN([read the SECURITY document before enabling rsync compatibility])
-    AC_MSG_NOTICE([enabling rsync compatability...])
+    AC_MSG_NOTICE([enabling rsync compatibility...])
     SCPONLY_PATH_PROG_DEFINE([PROG_RSYNC],   [rsync], [/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin])
 fi
 
@@ -230,23 +230,23 @@ fi
 
 if test "x$enable_svn_compat" != "x" && test "x$enable_svn_compat" != "xno"; then
     AC_MSG_WARN([read the SECURITY document before enabling svn compatibility])
-    AC_MSG_NOTICE([enabling subversion compatability...])
+    AC_MSG_NOTICE([enabling subversion compatibility...])
     SCPONLY_PATH_PROG_DEFINE([PROG_SVN],   [svn],   [/bin:/usr/bin:/usr/local/bin:/usr/local/bin])
 fi
 
 if test "x$enable_passwd_compat" != "x" && test "x$enable_passwd_compat" != "xno"; then
-    AC_MSG_NOTICE([enabling passwd compatability...])
+    AC_MSG_NOTICE([enabling passwd compatibility...])
     SCPONLY_PATH_PROG_DEFINE([PROG_PASSWD],   [passwd],   [/bin:/usr/bin:/sbin:/usr/sbin])
 fi
 
 if test "x$enable_quota_compat" != "x" && test "x$enable_quota_compat" != "xno"; then
-    AC_MSG_NOTICE([enabling quota compatability...])
+    AC_MSG_NOTICE([enabling quota compatibility...])
     SCPONLY_PATH_PROG_DEFINE([PROG_QUOTA],   [quota],   [/bin:/usr/bin:/sbin:/usr/sbin])
 fi
 
 dnl with-sftp-server conditionals:
 if test "x$scponly_sftp_compat" != "x"; then
-    AC_MSG_NOTICE([enabling SFTP compatability...])
+    AC_MSG_NOTICE([enabling SFTP compatibility...])
     if test "x$scponly_explicit_sftpserver_path" = "x"; then
         # Informed guess:
         SCPONLY_PATH_PROG_DEFINE([PROG_SFTP_SERVER], [sftp-server],
