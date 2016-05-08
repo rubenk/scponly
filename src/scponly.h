@@ -26,17 +26,17 @@
 
 typedef struct
 {
-	char *name;
+	const char *name;
 	int argflag;
 } cmd_t;
 
 typedef struct
 {
-	char *name;
+	const char *name;
 	int  getoptflag;
 	int  strict;
-	char *badarg;
-	char *opts;
+	const char *badarg;
+	const char *opts;
 	struct option *longopts;
 } cmd_arg_t;
  
