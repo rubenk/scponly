@@ -1,14 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
 
-dnl stupid hack to properly parse $PATH for /bin
-dnl if this breaks your configure, delete it
-dnl all it does is append the first dir to the end
-dnl first_part=`echo $PATH | cut -f1 -d\:`
-dnl export PATH=$PATH:$first_part
-PATH="$PATH:/usr/local/bin"
-
-dnl
-dnl Say what we are:
 AC_INIT(scponly, 4.8, joe@sublimation.org)                                                                      
 
 dnl AC_CONFIG_SRCDIR([helper.c])
