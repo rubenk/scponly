@@ -22,18 +22,18 @@ dnl Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_LN_S
-AC_PATH_PROG(PROG_CUT, cut)
-AC_PATH_PROG(PROG_GREP, grep)
-AC_PATH_PROG(PROG_SORT, sort)
-AC_PATH_PROG(PROG_LDD, ldd)
-AC_PATH_PROG(PROG_USERADD, useradd)
-AC_PATH_PROG(PROG_CHOWN, chown)
-AC_PATH_PROG(PROG_CHMOD, chmod)
-AC_PATH_PROG(PROG_DIRNAME, dirname)
-AC_PATH_PROG(PROG_ID, id)
-AC_PATH_PROG(PROG_PW, pw)
-AC_PATH_PROG(PROG_RM, rm)
-AC_PATH_PROG(PROG_PWD_MKDB, pwd_mkdb)
+AC_PATH_PROG([PROG_CUT], [cut])
+AC_PATH_PROG([PROG_GREP], [grep])
+AC_PATH_PROG([PROG_SORT], [sort])
+AC_PATH_PROG([PROG_LDD], [ldd])
+AC_PATH_PROG([PROG_USERADD], [useradd])
+AC_PATH_PROG([PROG_CHOWN], [chown])
+AC_PATH_PROG([PROG_CHMOD], [chmod])
+AC_PATH_PROG([PROG_DIRNAME], [dirname])
+AC_PATH_PROG([PROG_ID], [id])
+AC_PATH_PROG([PROG_PW], [pw])
+AC_PATH_PROG([PROG_RM], [rm])
+AC_PATH_PROG([PROG_PWD_MKDB], [pwd_mkdb])
 
 dnl Features wanted for this installation:
 dnl Command-line args to ./configure
