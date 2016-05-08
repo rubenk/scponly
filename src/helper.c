@@ -29,9 +29,6 @@
 #define RSYNC_ARG_EXECUTE 0x02
 #endif
 
-#define MAX(x,y)	( ( x > y ) ? x : y )
-#define MIN(x,y)	( ( x < y ) ? x : y )
-
 extern int debuglevel;
 extern char username[MAX_USERNAME];
 extern char homedir[FILENAME_MAX];
