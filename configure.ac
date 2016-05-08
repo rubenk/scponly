@@ -35,9 +35,8 @@ AC_PATH_PROG([PROG_PW], [pw])
 AC_PATH_PROG([PROG_RM], [rm])
 AC_PATH_PROG([PROG_PWD_MKDB], [pwd_mkdb])
 
-dnl Checks for libraries.
 dnl Checks for header files.
-AC_CHECK_HEADERS([wordexp.h glob.h libgen.h getopt.h])
+AC_CHECK_HEADERS_ONCE([wordexp.h glob.h libgen.h getopt.h])
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -45,7 +44,7 @@ AC_C_INLINE
 
 dnl Checks for library functions.
 AC_FUNC_ALLOCA
-AC_CHECK_FUNCS([bzero glob wordexp basename getopt])
+AC_CHECK_FUNCS_ONCE([bzero glob wordexp basename getopt])
 
 AC_CHECK_DECL(optreset,
  AC_DEFINE([HAVE_OPTRESET],[1],[have optreset]),,
