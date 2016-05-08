@@ -308,5 +308,5 @@ AC_CHECK_DECL(optreset,
  AC_DEFINE([HAVE_OPTRESET],[1],[have optreset]),,
  [#include <getopt.h>] )
 
-dnl AC_CONFIG_FILES([Makefile])
-AC_OUTPUT([Makefile setup_chroot.sh])
+AC_CONFIG_FILES([Makefile setup_chroot.sh])
+AC_OUTPUT
