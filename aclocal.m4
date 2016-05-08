@@ -5,6 +5,6 @@ AC_DEFUN([SCPONLY_PATH_PROG_DEFINE],
 	 [AC_PATH_PROG([scponly_$1], [$2], [],
                        [`echo "$PATH:$3" | sed -e 's/:/ /'`])
 	  test -z $scponly_$1 && echo "Can't find path to '$2'" && exit 1
-	  AC_DEFINE_UNQUOTED([$1], "$scponly_$1")])
+	  AC_DEFINE_UNQUOTED([$1], ["$scponly_$1"], [Define to 1 to enable $scponly_$1 compatibility])])
 
 
