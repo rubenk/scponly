@@ -4,8 +4,13 @@ AC_INIT([scponly], [4.8], [joe@sublimation.org])
 
 AC_CONFIG_SRCDIR([scponly.c])
 AC_CONFIG_HEADER([config.h])
+AC_CONFIG_AUX_DIR([build-aux])
 
 AC_CANONICAL_HOST
+
+AC_CONFIG_MACRO_DIR([m4])
+AM_INIT_AUTOMAKE([foreign dist-bzip2 no-dist-gzip tar-ustar -Wno-portability subdir-objects parallel-tests 1.11])
+AM_SILENT_RULES([yes])
 
 # this temp_os is a brutal hack until i look into the proper way to do this. ie- rtfm
 temp_os=`echo $host_os | cut -c-7`

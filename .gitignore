@@ -1,9 +1,13 @@
 /autom4te.cache/
-Makefile
+/aclocal.m4
+/build-aux/
+/Makefile
+/Makefile.in
 config.h
 config.log
 config.status
 config.h.in
+config.h.in~
 /configure
 debuglevel
 groups
@@ -12,3 +16,5 @@ scponly
 scponlyc
 tags
 CVS
+/setup_chroot.sh
+/stamp-h1

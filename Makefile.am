@@ -1,19 +1,9 @@
+ACLOCAL_AMFLAGS = -I m4
 # Autoconfed stuff
-srcdir		 = @srcdir@
-prefix		 = @prefix@
-exec_prefix	 = @exec_prefix@
-bindir		 = @bindir@
-sbindir		 = @sbindir@
-mandir		 = @mandir@
-CFLAGS		 = @CFLAGS@ -I$(srcdir) -I.
-INSTALL		 = @INSTALL@
-CC		 = @CC@
 CHROOTED_NAME   = @CHROOTED_NAME@
 CONFDIR         = @sysconfdir@/scponly
 DEBUGFILE       = ${CONFDIR}/debuglevel
 DEFS		 = @DEFS@ -DDEBUGFILE='"${DEBUGFILE}"'
-LN_S		 = @LN_S@
-VPATH		 = @srcdir@
 
 all: scponly groups
 
