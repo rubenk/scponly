@@ -16,6 +16,7 @@ scponlyc
 tags
 CVS
 /setup_chroot.sh
-/stamp-h1
+/src/stamp-h1
+/src/.dirstamp
 /*.tar.bz2
 /scponly-*/
