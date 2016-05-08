@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT([scponly], [4.8], [joe@sublimation.org])
 
-dnl AC_CONFIG_SRCDIR([helper.c])
+AC_CONFIG_SRCDIR([scponly.c])
 AC_CONFIG_HEADER([config.h])
 
 AC_CANONICAL_HOST
