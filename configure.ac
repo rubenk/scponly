@@ -46,9 +46,10 @@ dnl Checks for library functions.
 AC_FUNC_ALLOCA
 AC_CHECK_FUNCS_ONCE([bzero glob wordexp basename getopt])
 
-AC_CHECK_DECL(optreset,
- AC_DEFINE([HAVE_OPTRESET],[1],[have optreset]),,
- [#include <getopt.h>] )
+AC_CHECK_DECL([optreset],
+   AC_DEFINE([HAVE_OPTRESET], [1], [Define to 1 if you have the optreset declaration]), [],
+   [[#include <getopt.h>]])
+
 
 dnl Features wanted for this installation:
 dnl Command-line args to ./configure
