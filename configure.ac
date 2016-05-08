@@ -35,6 +35,23 @@ AC_PATH_PROG([PROG_PW], [pw])
 AC_PATH_PROG([PROG_RM], [rm])
 AC_PATH_PROG([PROG_PWD_MKDB], [pwd_mkdb])
 
+dnl Checks for libraries.
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS([stdlib.h string.h syslog.h unistd.h wordexp.h glob.h libgen.h getopt.h])
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_C_INLINE
+
+dnl Checks for library functions.
+AC_FUNC_ALLOCA
+AC_CHECK_FUNCS([malloc atexit bzero strchr strerror glob wordexp strspn basename getopt])
+
+AC_CHECK_DECL(optreset,
+ AC_DEFINE([HAVE_OPTRESET],[1],[have optreset]),,
+ [#include <getopt.h>] )
+
 dnl Features wanted for this installation:
 dnl Command-line args to ./configure
 dnl Call options "--disable-foo" if they default to on,
@@ -263,23 +280,6 @@ if test "x$scponly_sftp_compat" != "x"; then
         scponly_PROG_SFTP_SERVER=$scponly_explicit_sftpserver_path
     fi
 fi
-
-dnl Checks for libraries.
-dnl Checks for header files.
-AC_HEADER_STDC
-AC_CHECK_HEADERS([stdlib.h string.h syslog.h unistd.h wordexp.h glob.h libgen.h getopt.h])
-
-dnl Checks for typedefs, structures, and compiler characteristics.
-AC_C_CONST
-AC_C_INLINE
-
-dnl Checks for library functions.
-AC_FUNC_ALLOCA
-AC_CHECK_FUNCS([malloc atexit bzero strchr strerror glob wordexp strspn basename getopt])
-
-AC_CHECK_DECL(optreset,
- AC_DEFINE([HAVE_OPTRESET],[1],[have optreset]),,
- [#include <getopt.h>] )
 
 AC_CONFIG_FILES([Makefile setup_chroot.sh])
 AC_OUTPUT
